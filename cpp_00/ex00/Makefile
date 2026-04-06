@@ -10,7 +10,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CPPFLAGS) -o $@ $^
 # End Generation Here
 clean:
 	@rm -f $(OBJS)
