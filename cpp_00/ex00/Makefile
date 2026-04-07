@@ -7,18 +7,24 @@ OBJS = $(SRCS:.cpp=.o)
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
+RED = \033[31m
+YELLOW = \033[33m
+RESET = \033[0m
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CPPFLAGS) -o $@ $^
-# End Generation Here
-clean:
-	@rm -f $(OBJS)
-	@echo ".o files have been removed"
 
-fclean: clean
+clean:
+	@echo "$(YELLOW)[Clean]$(RESET) Remove object files..."
+	@rm -f $(OBJS)
+
+fclean:
+	@echo "$(RED)[Fclean]$(RESET) Remove all build artifacts..."
+	@rm -f $(OBJS)
 	@rm -f $(NAME)
-	@echo "Executable file has been removed"
+	
 re: fclean all
 
 .PHONY: all clean fclean re
