@@ -1,42 +1,46 @@
 #include "phonebook.hpp"
 
-static std::string Input_waiting(std::string msg) {
-	std::string	input;
+namespace {
+	std::string input_waiting(std::string msg) {
+		std::string	input;
 
-	std::cout << msg;
-	std::getline(std::cin, input);
-	return (input);
+		std::cout << msg;
+		std::getline(std::cin, input);
+		return (input);
+	}
+
+	std::string truncate(const std::string &s)
+	{
+		if (s.length() > 10)
+			return s.substr(0, 9) + ".";
+		return s;
+	}
 }
 
-bool Command::ADD(Contact *new_contact) {
+bool Contact::ADD() {
+	Contact	tmp;
 
-	new_contact->first_name = Input_waiting("first name: ");
-	if (new_contact->first_name == "")
+	tmp.first_name = input_waiting("first name: ");
+	if (tmp.first_name == "")
 		return false;
-	new_contact->last_name = Input_waiting("last name: ");
-	if (new_contact->last_name == "")
+	tmp.last_name = input_waiting("last name: ");
+	if (tmp.last_name == "")
 		return false;
-	new_contact->nickname = Input_waiting("nickname: ");
-	if (new_contact->nickname == "")
+	tmp.nickname = input_waiting("nickname: ");
+	if (tmp.nickname == "")
 		return false;
-	new_contact->phone_number = Input_waiting("phone number: ");
-	if (new_contact->phone_number == "")
+	tmp.phone_number = input_waiting("phone number: ");
+	if (tmp.phone_number == "")
 		return false;
-	new_contact->darkest_secret = Input_waiting("darkest secret: ");
-	if (new_contact->darkest_secret == "")
+	tmp.darkest_secret = input_waiting("darkest secret: ");
+	if (tmp.darkest_secret == "")
 		return false;
+	*this = tmp;
 	return true;
 }
 
-static std::string truncate(const std::string &s)
-{
-	if (s.length() > 10)
-		return s.substr(0, 9) + ".";
-	return s;
-}
-
-void Command::SEARCH(Phonebook *pb) {
-	if (pb->count == -1)
+void Phonebook::SEARCH() {
+	if (count == -1)
 	{
 		std::cout << "The phonebook is empty. Please add a contact first." << std::endl;
 		return ;
@@ -45,18 +49,33 @@ void Command::SEARCH(Phonebook *pb) {
 	std::cout << " | " << std::setw(10) << "First Name";
 	std::cout << " | " << std::setw(10) << "Last Name";
 	std::cout << " | " << std::setw(10) << "Nickname" << std::endl;
-	for (int i = 0; i <= pb->count; i++)
+	for (int i = 0; i <= count; i++)
 	{
 		std::cout << std::setw(10) << i + 1;
-		std::cout << " | " << std::setw(10) << truncate(pb->contacts[i].first_name);
-		std::cout << " | " << std::setw(10) << truncate(pb->contacts[i].last_name);
-		std::cout << " | " << std::setw(10) << truncate(pb->contacts[i].nickname);
+		std::cout << " | " << std::setw(10) << truncate(contacts[i].first_name);
+		std::cout << " | " << std::setw(10) << truncate(contacts[i].last_name);
+		std::cout << " | " << std::setw(10) << truncate(contacts[i].nickname);
 		std::cout << std::endl;
 	}
-	return ;
+
+	std::string	line;
+	int			idx;
+	std::cout << "Enter index: ";
+	std::getline(std::cin, line);
+	std::istringstream ss(line);
+	if (!(ss >> idx) || idx < 1 || idx > count + 1)
+	{
+		std::cout << "Invalid index." << std::endl;
+		return ;
+	}
+	Contact &c = contacts[idx - 1];
+	std::cout << "First name    : " << c.first_name << std::endl;
+	std::cout << "Last name     : " << c.last_name << std::endl;
+	std::cout << "Nickname      : " << c.nickname << std::endl;
+	std::cout << "Phone number  : " << c.phone_number << std::endl;
+	std::cout << "Darkest secret: " << c.darkest_secret << std::endl;
 }
 
-void Command::EXIT() {
+void EXIT() {
 	std::cout << "The Program quits and the contacts are lost forever!" << std::endl;
-	return ;
 }

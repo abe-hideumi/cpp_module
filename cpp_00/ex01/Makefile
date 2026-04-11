@@ -15,7 +15,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CPPFLAGS) -o $@ $^
+	g++ $(CPPFLAGS) -o $@ $^
 
 clean:
 	@echo "$(YELLOW)[Clean]$(RESET) Remove object files..."
