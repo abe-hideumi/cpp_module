@@ -14,7 +14,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CPPFLAGS) -o $@ $^
+	g++ $(CPPFLAGS) -o $@ $^
 
 clean:
 	@echo "$(YELLOW)[Clean]$(RESET) Remove object files..."
@@ -24,7 +24,7 @@ fclean:
 	@echo "$(RED)[Fclean]$(RESET) Remove all build artifacts..."
 	@rm -f $(OBJS)
 	@rm -f $(NAME)
-	
+
 re: fclean all
 
 .PHONY: all clean fclean re
