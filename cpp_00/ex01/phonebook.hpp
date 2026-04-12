@@ -2,30 +2,49 @@
 # define PHONEBOOK_HPP
 
 # include <string>
+# include <cstdlib>
+# include <cctype>
 # include <iostream>
 # include <iomanip>
-# include <sstream>
 
-# define MAX_CONTACTS 7
-# define OLD_CONTACT -1
+const int	MAX_CONTACTS = 8;
 
 class Contact {
-	public:
+	private:
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
 		std::string	phone_number;
 		std::string	darkest_secret;
-		bool		ADD();
+
+	public:
+		std::string	first_name_get() const { return first_name; }
+		std::string	last_name_get() const { return last_name; }
+		std::string	nickname_get() const { return nickname; }
+		std::string	phone_number_get() const { return phone_number; }
+		std::string	darkest_secret_get() const { return darkest_secret; }
+		bool		fill_from_input();
 };
 
 class Phonebook {
+	private:
+		int			pb_size;
+		int			input_index;
+		Contact		contacts[MAX_CONTACTS];
+		std::string	truncate(const std::string &s);
+		void		all_display();
+		void		detail_display(const Contact &c);
+
 	public:
-		Contact		contacts[MAX_CONTACTS + 1];
-		int			count;
-		void		SEARCH();
+		Phonebook() : pb_size(0), input_index(0) {}
+		bool		phonebook_add();
+		void		phonebook_search();
 };
 
-void	EXIT(void);
+void		exit_program(void);
+std::string	input_waiting(const std::string &msg);
+bool		valid_string(const std::string &input);
+bool		valid_number(const std::string &input);
+int			valid_index(int pb_size, const std::string &input);
 
 #endif

@@ -1,2 +1,6 @@
+# all .o files
 *.o
+
+# cpp executables files
 cpp_00/ex00/megaphone
+cpp_00/ex01/phonebook

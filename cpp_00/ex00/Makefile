@@ -5,7 +5,8 @@ SRCS = megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = g++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RED = \033[31m
 YELLOW = \033[33m
@@ -14,7 +15,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	g++ $(CPPFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
 	@echo "$(YELLOW)[Clean]$(RESET) Remove object files..."
