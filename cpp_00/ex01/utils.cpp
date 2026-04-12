@@ -1,4 +1,6 @@
 #include "phonebook.hpp"
+#include <cerrno>
+#include <climits>
 
 void	exit_program() {
 	std::cout << "The Program quits and the contacts are lost forever!" << std::endl;
@@ -43,10 +45,16 @@ bool	valid_number(const std::string &input) {
 }
 
 int	valid_index(int pb_size, const std::string &input) {
-	int	index;
+	size_t	length = input.length();
+	int		index;
 
-	if (input.empty() == true || input[0].isdigit() == false)
+	if (input.empty() == true || length > 2)
 		return -1;
+	for (size_t i = 0; i < length; i++)
+	{
+		if (std::isdigit((unsigned char)input[i]) == false)
+			return -1;
+	}
 	index = std::atoi(input.c_str());
 	if (index < 1 || index > pb_size)
 		return -1;

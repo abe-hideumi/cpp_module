@@ -11,11 +11,10 @@ void	handle_command(Phonebook &pb, const std::string &line)
 	return ;
 }
 
-int	main(int ac, char *av[]) {
+int	main(int ac, char **) {
 	Phonebook	pb;
 	std::string	line;
 
-	(void)av;
 	if (ac != 1)
 		return (std::cout << "Usage: ./phonebook" << std::endl, 1);
 	while (1)

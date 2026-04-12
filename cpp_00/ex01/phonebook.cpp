@@ -1,5 +1,4 @@
 #include "phonebook.hpp"
-#include <sstream>
 
 std::string	Phonebook::truncate(const std::string &str)
 {
@@ -16,19 +15,19 @@ void	Phonebook::all_display() {
 	for (int i = 0; i < pb_size; i++)
 	{
 		std::cout << std::setw(10) << i + 1;
-		std::cout << " | " << std::setw(10) << truncate(contacts[i].first_name_get());
-		std::cout << " | " << std::setw(10) << truncate(contacts[i].last_name_get());
-		std::cout << " | " << std::setw(10) << truncate(contacts[i].nickname_get());
+		std::cout << " | " << std::setw(10) << truncate(contacts[i].get_first_name());
+		std::cout << " | " << std::setw(10) << truncate(contacts[i].get_last_name());
+		std::cout << " | " << std::setw(10) << truncate(contacts[i].get_nickname());
 		std::cout << std::endl;
 	}
 }
 
 void	Phonebook::detail_display(const Contact &c) {
-	std::cout << "First name    : " << c.first_name_get() << std::endl;
-	std::cout << "Last name     : " << c.last_name_get() << std::endl;
-	std::cout << "Nickname      : " << c.nickname_get() << std::endl;
-	std::cout << "Phone number  : " << c.phone_number_get() << std::endl;
-	std::cout << "Darkest secret: " << c.darkest_secret_get() << std::endl;
+	std::cout << "First name    : " << c.get_first_name() << std::endl;
+	std::cout << "Last name     : " << c.get_last_name() << std::endl;
+	std::cout << "Nickname      : " << c.get_nickname() << std::endl;
+	std::cout << "Phone number  : " << c.get_phone_number() << std::endl;
+	std::cout << "Darkest secret: " << c.get_darkest_secret() << std::endl;
 }
 
 void	Phonebook::phonebook_search() {
