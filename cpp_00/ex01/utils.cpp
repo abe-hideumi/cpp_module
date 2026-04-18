@@ -14,7 +14,7 @@ std::string	input_waiting(const std::string &msg) {
 	std::getline(std::cin, input);
 	if (std::cin.eof())
 		exit_program();
-	return (input);
+	return input;
 }
 
 bool	valid_string(const std::string &input) {
@@ -48,7 +48,9 @@ int	valid_index(int pb_size, const std::string &input) {
 	size_t	length = input.length();
 	int		index;
 
-	if (input.empty() == true || length > 2)
+	if (input.empty() == true || std::isdigit(input[0]) == false)
+		return -1;
+	if (input.length() >= 2)
 		return -1;
 	for (size_t i = 0; i < length; i++)
 	{
