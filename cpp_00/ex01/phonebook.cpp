@@ -14,16 +14,16 @@ int	Phonebook::validIndex(const std::string &input) {
 }
 
 void	Phonebook::allDisplay() {
-	std::cout << std::setw(10) << "Index";
-	std::cout << " | " << std::setw(10) << "First Name";
-	std::cout << " | " << std::setw(10) << "Last Name";
-	std::cout << " | " << std::setw(10) << "Nickname" << std::endl;
+	std::cout << std::setw(MAX_CHAR) << "Index";
+	std::cout << " | " << std::setw(MAX_CHAR) << "First Name";
+	std::cout << " | " << std::setw(MAX_CHAR) << "Last Name";
+	std::cout << " | " << std::setw(MAX_CHAR) << "Nickname" << std::endl;
 	for (int i = 0; i < this->pbSize; i++)
 	{
-		std::cout << std::setw(10) << i + 1;
-		std::cout << " | " << std::setw(10) << truncate(contacts[i].getFirstName());
-		std::cout << " | " << std::setw(10) << truncate(contacts[i].getLastName());
-		std::cout << " | " << std::setw(10) << truncate(contacts[i].getNickname());
+		std::cout << std::setw(MAX_CHAR) << i + 1;
+		std::cout << " | " << std::setw(MAX_CHAR) << truncate(contacts[i].getFirstName());
+		std::cout << " | " << std::setw(MAX_CHAR) << truncate(contacts[i].getLastName());
+		std::cout << " | " << std::setw(MAX_CHAR) << truncate(contacts[i].getNickname());
 		std::cout << std::endl;
 	}
 }

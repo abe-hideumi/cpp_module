@@ -17,8 +17,8 @@ std::string	inputWaiting(const std::string &msg) {
 }
 
 std::string	truncate(const std::string &str) {
-	if (str.length() > 10)
-		return str.substr(0, 9) + ".";
+	if (str.length() >= MAX_CHAR)
+		return str.substr(0, MAX_CHAR - 1) + ".";
 	return str;
 }
 

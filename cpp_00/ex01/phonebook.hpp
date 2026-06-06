@@ -7,7 +7,7 @@
 # include "contact.hpp"
 # include "utils.hpp"
 
-const int	MAX_CONTACTS = 8;
+# define MAX_CONTACTS 8
 
 class Phonebook {
 	private:
