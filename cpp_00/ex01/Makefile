@@ -3,7 +3,6 @@ NAME = phonebook
 
 SRCS = main.cpp\
 		utils.cpp\
-		contact.cpp\
 		phonebook.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
@@ -29,8 +28,7 @@ clean:
 	@rm -f $(OBJS)
 	@echo "$(YELLOW)[Clean]$(RESET) Remove object files..."
 
-fclean:
-	@rm -f $(OBJS)
+fclean: clean
 	@rm -f $(NAME)
 	@echo "$(RED)[Fclean]$(RESET) Remove all build artifacts..."
 

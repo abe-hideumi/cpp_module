@@ -4,3 +4,6 @@
 # cpp executables files
 cpp_00/ex00/megaphone
 cpp_00/ex01/phonebook
+
+# unfinished cpp modules
+cpp_01/*
