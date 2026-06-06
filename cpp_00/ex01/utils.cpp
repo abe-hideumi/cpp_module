@@ -39,15 +39,19 @@ bool	validName(const std::string &input) {
 }
 
 bool	validNumber(const std::string &input) {
+	bool	hasDigit = false;
+
 	if (input.empty())
 		return false;
 	for (size_t i = 0; i < input.length(); i++)
 	{
-		if (!std::isdigit((unsigned char)input[i])
-				&& !std::isspace((unsigned char)input[i])
+		bool	digit = std::isdigit((unsigned char)input[i]);
+			if (!digit && !std::isspace((unsigned char)input[i])
 				&& input[i] != '+' && input[i] != '-'
 				&& input[i] != '(' && input[i] != ')')
 			return false;
+		if (digit)
+			hasDigit = true;
 	}
-	return true;
+	return hasDigit;
 }
