@@ -2,8 +2,5 @@
 *.o
 
 # cpp executables files
-cpp_00/ex00/megaphone
-cpp_00/ex01/phonebook
-
-# unfinished cpp modules
-cpp_01/*
+00/ex00/megaphone
+00/ex01/phonebook
