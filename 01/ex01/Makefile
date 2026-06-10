@@ -1,4 +1,4 @@
-NAME = ZombieHorde
+NAME = ex01
 
 SRCS = main.cpp\
 		zombieHorde.cpp\
