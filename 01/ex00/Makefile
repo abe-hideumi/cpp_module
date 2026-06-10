@@ -5,7 +5,8 @@ SRCS = main.cpp\
 		randomChump.cpp\
 		Zombie.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJ_DIR = objs
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
@@ -22,11 +23,12 @@ $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $@ $^
 	@echo "$(GREEN)[Build]$(RESET) Successfully built $(NAME)"
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
 	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	@rm -f $(OBJS)
+	@rm -rf objs
 	@echo "$(YELLOW)[Clean]$(RESET) Remove object files..."
 
 fclean: clean
