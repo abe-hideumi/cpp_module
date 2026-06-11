@@ -9,12 +9,11 @@ int	main() {
 	std::string	*stringPTR = &src;
 	std::string	&stringREF = src;
 
-	std::cout << "--Memory address--" << std::endl;
+	std::cout << "--Memory address--\n";
 	std::cout << std::setw(MAX_CHAR) << "src" << ": " << &src << std::endl;
 	std::cout << std::setw(MAX_CHAR) << "stringPTR" << ": " << stringPTR << std::endl;
 	std::cout << std::setw(MAX_CHAR) << "stringREF" << ": " << &stringREF << std::endl;
-	std::cout << std::endl;
-	std::cout << "--Value--" << std::endl;
+	std::cout << "\n--Value--\n";
 	std::cout << std::setw(MAX_CHAR) << "src" << ": " << src << std::endl;
 	std::cout << std::setw(MAX_CHAR) << "stringPTR" << ": " << *stringPTR << std::endl;
 	std::cout << std::setw(MAX_CHAR) << "stringREF" << ": " << stringREF << std::endl;
