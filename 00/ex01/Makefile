@@ -4,10 +4,11 @@ NAME = phonebook
 SRCS = main.cpp\
 		utils.cpp\
 		phonebook.cpp\
+		contact.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 RED = \033[31m

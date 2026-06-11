@@ -1,28 +1,28 @@
 #include "utils.hpp"
 #include <cctype>
 
-void	exitProgram() {
+void	ExitProgram() {
 	std::cout << "The Program quits and the contacts are lost forever!" << std::endl;
 	exit(0);
 }
 
-std::string	inputWaiting(const std::string &msg) {
+std::string	InputWaiting(const std::string &msg) {
 	std::string	input;
 
 	std::cout << msg;
 	std::getline(std::cin, input);
 	if (std::cin.eof())
-		exitProgram();
+		ExitProgram();
 	return input;
 }
 
-std::string	truncate(const std::string &str) {
+std::string	Truncate(const std::string &str) {
 	if (str.length() >= MAX_CHAR)
 		return str.substr(0, MAX_CHAR - 1) + ".";
 	return str;
 }
 
-bool	validName(const std::string &input) {
+bool	ValidName(const std::string &input) {
 	bool	hasAlpha = false;
 
 	if (input.empty())
@@ -38,7 +38,7 @@ bool	validName(const std::string &input) {
 	return hasAlpha;
 }
 
-bool	validNumber(const std::string &input) {
+bool	ValidNumber(const std::string &input) {
 	bool	hasDigit = false;
 
 	if (input.empty())

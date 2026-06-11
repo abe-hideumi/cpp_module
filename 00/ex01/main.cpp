@@ -1,13 +1,13 @@
 #include "phonebook.hpp"
 
-void	handleCommand(Phonebook &pb, const std::string &line)
+void	HandleCommand(Phonebook &pb, const std::string &line)
 {
 	if (line == "ADD")
-		pb.phonebookAdd();
+		pb.PhoneBookAdd();
 	else if (line == "SEARCH")
-		pb.phonebookSearch();
+		pb.PhoneBookSearch();
 	else if (line == "EXIT")
-		exitProgram();
+		ExitProgram();
 	return ;
 }
 
@@ -22,8 +22,8 @@ int	main(int ac, char **) {
 		std::cout << "phonebook: ";
 		std::getline(std::cin, line);
 		if (std::cin.eof() == true)
-			exitProgram();
-		handleCommand(pb, line);
+			ExitProgram();
+		HandleCommand(pb, line);
 	}
 	return (0);
 }

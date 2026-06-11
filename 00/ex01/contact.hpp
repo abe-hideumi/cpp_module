@@ -5,22 +5,21 @@
 
 class Contact {
 	private:
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickname;
-		std::string	phoneNumber;
-		std::string	darkestSecret;
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickname;
+		std::string	_phoneNumber;
+		std::string	_darkestSecret;
 
 	public:
-		Contact() {}
+		Contact();
 		Contact(const std::string &fn, const std::string &ln, const std::string &nn,
-				const std::string &pn, const std::string &ds)
-			: firstName(fn), lastName(ln), nickname(nn), phoneNumber(pn), darkestSecret(ds) {}
-		const std::string &	getFirstName() const { return firstName; }
-		const std::string &	getLastName() const { return lastName; }
-		const std::string &	getNickname() const { return nickname; }
-		const std::string &	getPhoneNumber() const { return phoneNumber; }
-		const std::string &	getDarkestSecret() const { return darkestSecret; }
+				const std::string &pn, const std::string &ds);
+		const std::string &	GetFirstName() const;
+		const std::string &	GetLastName() const;
+		const std::string &	GetNickname() const;
+		const std::string &	GetPhoneNumber() const;
+		const std::string &	GetDarkestSecret() const;
 };
 
 #endif
