@@ -1,8 +1,7 @@
-NAME = ex00
+NAME = ex01
 
 SRCS = main.cpp\
-		newZombie.cpp\
-		randomChump.cpp\
+		zombieHorde.cpp\
 		Zombie.cpp
 
 OBJ_DIR = objs

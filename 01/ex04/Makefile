@@ -1,9 +1,7 @@
-NAME = ex00
+NAME = ex04
 
 SRCS = main.cpp\
-		newZombie.cpp\
-		randomChump.cpp\
-		Zombie.cpp
+		input.cpp
 
 OBJ_DIR = objs
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
