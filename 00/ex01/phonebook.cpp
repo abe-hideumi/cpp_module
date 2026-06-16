@@ -7,7 +7,7 @@ Phonebook::Phonebook() {
 	this->_inputIndex = 0;
 }
 
-int	Phonebook::_ValidIndex(const std::string &input) {
+int	Phonebook::ValidIndex(const std::string &input) {
 	int	index;
 
 	if (input.length() != 1 || !std::isdigit((unsigned char)input[0]))
@@ -18,7 +18,7 @@ int	Phonebook::_ValidIndex(const std::string &input) {
 	return index;
 }
 
-void	Phonebook::_AllDisplay() {
+void	Phonebook::AllDisplay() {
 	std::cout << std::setw(MAX_CHAR) << "Index";
 	std::cout << " | " << std::setw(MAX_CHAR) << "First Name";
 	std::cout << " | " << std::setw(MAX_CHAR) << "Last Name";
@@ -26,22 +26,22 @@ void	Phonebook::_AllDisplay() {
 	for (int i = 0; i < this->_pbSize; i++)
 	{
 		std::cout << std::setw(MAX_CHAR) << i + 1;
-		std::cout << " | " << std::setw(MAX_CHAR) << Truncate(this->_contacts[i].GetFirstName());
-		std::cout << " | " << std::setw(MAX_CHAR) << Truncate(this->_contacts[i].GetLastName());
-		std::cout << " | " << std::setw(MAX_CHAR) << Truncate(this->_contacts[i].GetNickname());
+		std::cout << " | " << std::setw(MAX_CHAR) << Truncate(contacts[i].GetFirstName());
+		std::cout << " | " << std::setw(MAX_CHAR) << Truncate(contacts[i].GetLastName());
+		std::cout << " | " << std::setw(MAX_CHAR) << Truncate(contacts[i].GetNickname());
 		std::cout << std::endl;
 	}
 }
 
-void	Phonebook::_DetailDisplay(const Contact &c) {
-	std::cout << "First name    : " << c.GetFirstName( ) << std::endl;
-	std::cout << "Last name     : " << c.GetLastName( ) << std::endl;
-	std::cout << "Nickname      : " << c.GetNickname( ) << std::endl;
-	std::cout << "Phone number  : " << c.GetPhoneNumber( ) << std::endl;
-	std::cout << "Darkest secret: " << c.GetDarkestSecret( ) << std::endl;
+void	Phonebook::DetailDisplay(const Contact &c) {
+	std::cout << "First name    : " << c.GetFirstName() << std::endl;
+	std::cout << "Last name     : " << c.GetLastName() << std::endl;
+	std::cout << "Nickname      : " << c.GetNickname() << std::endl;
+	std::cout << "Phone number  : " << c.GetPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << c.GetDarkestSecret() << std::endl;
 }
 
-void	Phonebook::PhoneBookSearch() {
+void	Phonebook::PhonebookSearch() {
 	std::string	line;
 	int		index = -1;
 
@@ -50,18 +50,18 @@ void	Phonebook::PhoneBookSearch() {
 		std::cout << "Error: The phonebook is empty." << std::endl;
 		return ;
 	}
-	_AllDisplay();
+	AllDisplay();
 	line = InputWaiting("index: ");
-	index = _ValidIndex(line);
+	index = ValidIndex(line);
 	if (index == -1)
 	{
 		std::cout << "Error: Invalid index." << std::endl;
 		return ;
 	}
-	_DetailDisplay(this->_contacts[index - 1]);
+	DetailDisplay(contacts[index - 1]);
 }
 
-bool	Phonebook::_FillFromInput() {
+bool	Phonebook::FillFromInput() {
 	std::string	firstName, lastName, nickname, phoneNumber, darkestSecret;
 
 	firstName = InputWaiting("first name: ");
@@ -79,12 +79,12 @@ bool	Phonebook::_FillFromInput() {
 	darkestSecret = InputWaiting("darkest secret: ");
 	if (darkestSecret.empty())
 		return false;
-	this->_contacts[this->_inputIndex] = Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
+	contacts[this->_inputIndex] = Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
 	return true;
 }
 
-bool	Phonebook::PhoneBookAdd() {
-	if (!this->_FillFromInput())
+bool	Phonebook::PhonebookAdd() {
+	if (!FillFromInput())
 	{
 		std::cout << "Error: Failed to add contact." << std::endl;
 		return false;

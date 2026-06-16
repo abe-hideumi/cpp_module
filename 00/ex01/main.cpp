@@ -3,9 +3,9 @@
 void	HandleCommand(Phonebook &pb, const std::string &line)
 {
 	if (line == "ADD")
-		pb.PhoneBookAdd();
+		pb.PhonebookAdd();
 	else if (line == "SEARCH")
-		pb.PhoneBookSearch();
+		pb.PhonebookSearch();
 	else if (line == "EXIT")
 		ExitProgram();
 	return ;
