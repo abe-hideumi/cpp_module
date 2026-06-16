@@ -17,25 +17,20 @@ std::string	InputWaiting(const std::string &msg) {
 }
 
 std::string	Truncate(const std::string &str) {
-	if (str.length() >= MAX_CHAR)
+	if (str.length() > MAX_CHAR)
 		return str.substr(0, MAX_CHAR - 1) + ".";
 	return str;
 }
 
 bool	ValidName(const std::string &input) {
-	bool	hasAlpha = false;
-
 	if (input.empty())
 		return false;
 	for (size_t i = 0; i < input.length(); i++)
 	{
-		bool	alpha = std::isalpha((unsigned char)input[i]);
-		if (!alpha && !std::isspace((unsigned char)input[i]))
-			return false;
-		if (alpha)
-			hasAlpha = true;
+		if (!std::isspace((unsigned char)input[i]))
+			return true;
 	}
-	return hasAlpha;
+	return false;
 }
 
 bool	ValidNumber(const std::string &input) {

@@ -13,16 +13,16 @@ class Phonebook {
 	private:
 		int			_pbSize;
 		int			_inputIndex;
-		Contact		_contacts[MAX_CONTACTS];
-		void		_AllDisplay();
-		void		_DetailDisplay(const Contact &c);
-		int			_ValidIndex(const std::string &input);
-		bool		_FillFromInput();
+		Contact		contacts[MAX_CONTACTS];
+		void		AllDisplay();
+		void		DetailDisplay(const Contact &c);
+		int			ValidIndex(const std::string &input);
+		bool		FillFromInput();
 
 	public:
 		Phonebook();
-		bool		PhoneBookAdd();
-		void		PhoneBookSearch();
+		bool		PhonebookAdd();
+		void		PhonebookSearch();
 };
 
 #endif

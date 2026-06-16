@@ -1,20 +1,17 @@
+NAME = ex02
 
-NAME = phonebook
+SRCS = main.cpp
 
-SRCS = main.cpp\
-		utils.cpp\
-		contact.cpp\
-		phonebook.cpp\
-		contact.cpp\
-
-OBJS = $(SRCS:.cpp=.o)
+OBJ_DIR = objs
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
+# Colors
 RED = \033[31m
-YELLOW = \033[33m
 GREEN = \033[32m
+YELLOW = \033[33m
 RESET = \033[0m
 
 all: $(NAME)
@@ -23,11 +20,12 @@ $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $@ $^
 	@echo "$(GREEN)[Build]$(RESET) Successfully built $(NAME)"
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
 	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	@rm -f $(OBJS)
+	@rm -rf $(OBJ_DIR)
 	@echo "$(YELLOW)[Clean]$(RESET) Remove object files..."
 
 fclean: clean
