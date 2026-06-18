@@ -1,7 +1,6 @@
 NAME = ex04
 
 SRCS = main.cpp\
-		input.cpp
 
 OBJ_DIR = objs
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))

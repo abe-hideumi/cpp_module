@@ -1,5 +1,6 @@
 # all .o files
 *.o
+*test*
 
 # cpp executables files
 00/ex00/megaphone
