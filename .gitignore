@@ -1,6 +1,7 @@
 # all .o files
 *.o
 *test*
+*outfile
 
 # cpp executables files
 00/ex00/megaphone
@@ -14,3 +15,6 @@
 01/ex04/test
 01/ex04/test.replace
 01/ex05/ex05
+
+02/ex00/ex00
+02/ex01/ex01
