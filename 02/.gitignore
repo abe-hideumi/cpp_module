@@ -1,0 +1,6 @@
+*.o
+*test*
+*outfile
+
+02/ex00/ex00
+02/ex01/ex01
