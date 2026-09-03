@@ -1,0 +1,13 @@
+*.o
+*test*
+*outfile
+
+ex00/ex00
+ex01/ex01
+ex02/ex02
+ex03/ex03
+ex04/ex04
+ex04/test
+ex04/test.replace
+ex05/ex05
+
