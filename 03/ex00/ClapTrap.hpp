@@ -8,14 +8,14 @@ class ClapTrap {
         std::string  _name;
         int         _hitPoint;
         int         _energyPoint;
-        int         _attackDamege;
+        int         _attackDamage;
         bool    checkPoint(void);
 
     public:
         ~ClapTrap();
         ClapTrap(const std::string &name);
         void    attack(const std::string& target); 
-        void    takeDamege(unsigned int amount);
+        void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
 };
 
