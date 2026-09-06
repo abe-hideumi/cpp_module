@@ -1,23 +1,23 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main(void)
 {
-    std::cout << "===== ScavTrap test =====" << std::endl;
+    std::cout << "===== FragTrap test =====" << std::endl;
 
-    ScavTrap scav("habe");
+    FragTrap frag("habe");
 
     std::cout << "\n===== Attack =====" << std::endl;
-    scav.attack("enemy");
-
-    std::cout << "\n===== Guard Gate =====" << std::endl;
-    scav.guardGate();
+    frag.attack("enemy");
 
     std::cout << "\n===== Take Damage =====" << std::endl;
-    scav.takeDamage(30);
+    frag.takeDamage(30);
 
     std::cout << "\n===== Repair =====" << std::endl;
-    scav.beRepaired(20);
+    frag.beRepaired(20);
+
+    std::cout << "\n===== High Five =====" << std::endl;
+    frag.highFivesGuys();
 
     std::cout << "\n===== Destruction =====" << std::endl;
 
