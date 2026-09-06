@@ -3,7 +3,7 @@
 
 static const int initHitPoint = 10;
 static const int initEnergyPoint = 10;
-static const int initAttackDamage = 0;
+static const int initAttackDamege = 0;
 
 bool ClapTrap::checkPoint(void) {
     if (this->_hitPoint <= 0)
@@ -20,7 +20,7 @@ ClapTrap::~ClapTrap() {
 ClapTrap::ClapTrap(const std::string &name) {
     this->_hitPoint = initHitPoint;
     this->_energyPoint = initEnergyPoint;
-    this->_attackDamage = initAttackDamage;
+    this->_attackDamege = initAttackDamege;
     this->_name = name;   
     std::cout << "created a ClapTrap with this " << this->_name << std::endl;  
 }
@@ -30,12 +30,12 @@ void ClapTrap::attack(const std::string& target) {
         return ;
     std::cout << "ClapTrap " << this->_name
           << " attacks " << target
-          << ", causing " << this->_attackDamage
-          << " points of damage!" << std::endl;
+          << ", causing " << this->_attackDamege
+          << " points of damege!" << std::endl;
     this->_energyPoint--;
 }
 
-void ClapTrap::takeDamage(unsigned int amount) {
+void ClapTrap::takeDamege(unsigned int amount) {
     if ((unsigned int)this->_hitPoint <= amount)
         this->_hitPoint = 0;
     else

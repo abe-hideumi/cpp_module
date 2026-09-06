@@ -11,22 +11,22 @@ int main(void)
     clap.attack("enemy");
     clap.attack("enemy");
 
-    std::cout << "\n===== TakeDamage =====" << std::endl;
-    clap.takeDamage(5);
-    clap.takeDamage(3);
+    std::cout << "\n===== TakeDamege =====" << std::endl;
+    clap.takeDamege(5);
+    clap.takeDamege(3);
 
     std::cout << "\n===== Repair =====" << std::endl;
     clap.beRepaired(4);
     clap.beRepaired(2);
 
-    std::cout << "\n===== Lethal damage =====" << std::endl;
-    clap.takeDamage(100);
+    std::cout << "\n===== Lethal damege =====" << std::endl;
+    clap.takeDamege(100);
 
     std::cout << "\n===== Action with 0 HP =====" << std::endl;
     clap.attack("enemy");
     clap.beRepaired(5);
 
-    std::cout << "\n===== Destructor =====" << std::endl;
+    std::cout << "\n===== Destructor test =====" << std::endl;
 
     return (0);
 }
