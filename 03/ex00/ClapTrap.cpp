@@ -1,6 +1,5 @@
 #include "ClapTrap.hpp"
 #include <iostream>
-#include <iterator>
 
 static const int initHitPoint = 10;
 static const int initEnergyPoint = 10;
