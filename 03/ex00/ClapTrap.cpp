@@ -46,7 +46,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
     if (checkPoint())
         return ;
     std::cout << "ClapTrap " << this->_name
-          << " reqaired hitPoints " << amount << std::endl;
+          << " repaired hitPoints " << amount << std::endl;
     this->_hitPoint += amount;
     this->_energyPoint--;
 }

@@ -1,32 +1,25 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main(void)
 {
-    std::cout << "===== Constructor =====" << std::endl;
-    ClapTrap clap("habe");
+    std::cout << "===== ScavTrap test =====" << std::endl;
+
+    ScavTrap scav("habe");
 
     std::cout << "\n===== Attack =====" << std::endl;
-    clap.attack("enemy");
-    clap.attack("enemy");
-    clap.attack("enemy");
+    scav.attack("enemy");
 
-    std::cout << "\n===== TakeDamage =====" << std::endl;
-    clap.takeDamage(5);
-    clap.takeDamage(3);
+    std::cout << "\n===== Guard Gate =====" << std::endl;
+    scav.guardGate();
+
+    std::cout << "\n===== Take Damage =====" << std::endl;
+    scav.takeDamage(30);
 
     std::cout << "\n===== Repair =====" << std::endl;
-    clap.beRepaired(4);
-    clap.beRepaired(2);
+    scav.beRepaired(20);
 
-    std::cout << "\n===== Lethal damage =====" << std::endl;
-    clap.takeDamage(100);
-
-    std::cout << "\n===== Action with 0 HP =====" << std::endl;
-    clap.attack("enemy");
-    clap.beRepaired(5);
-
-    std::cout << "\n===== Destructor =====" << std::endl;
+    std::cout << "\n===== Destruction =====" << std::endl;
 
     return (0);
 }

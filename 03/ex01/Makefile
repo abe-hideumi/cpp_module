@@ -1,12 +1,13 @@
-NAME = ex00
+NAME = ex01
 
 SRCS = main.cpp\
-		ClapTrap.cpp
+		ClapTrap.cpp\
+		ScavTrap.cpp
 
 OBJ_DIR = objs
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-HEADERS = ClapTrap.hpp
+HEADERS = ClapTrap.hpp ScavTrap.hpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
