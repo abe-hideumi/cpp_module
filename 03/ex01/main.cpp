@@ -1,25 +1,35 @@
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include <iostream>
 
 int main(void)
 {
-    std::cout << "===== ScavTrap test =====" << std::endl;
+    std::cout << "===== ClapTrap construction =====" << std::endl;
+    ClapTrap clap("42");
 
-    ScavTrap scav("habe");
+    std::cout << "\n===== ScavTrap construction chaining =====" << std::endl;
+    ScavTrap scav("tokyo");
 
-    std::cout << "\n===== Attack =====" << std::endl;
+    std::cout << "\n===== Two different attack messages =====" << std::endl;
+    clap.attack("enemy");
     scav.attack("enemy");
 
-    std::cout << "\n===== Guard Gate =====" << std::endl;
+    std::cout << "\n===== Guard gate =====" << std::endl;
     scav.guardGate();
 
-    std::cout << "\n===== Take Damage =====" << std::endl;
+    std::cout << "\n===== TakeDamage / Repair =====" << std::endl;
     scav.takeDamage(30);
-
-    std::cout << "\n===== Repair =====" << std::endl;
     scav.beRepaired(20);
 
-    std::cout << "\n===== Destruction =====" << std::endl;
+    std::cout << "\n===== Copy constructor =====" << std::endl;
+    ScavTrap copy(scav);
+    copy.attack("enemy");
 
+    std::cout << "\n===== Copy assignment =====" << std::endl;
+    ScavTrap other("other");
+    other = scav;
+    other.attack("enemy");
+
+    std::cout << "\n===== Destruction chaining =====" << std::endl;
     return (0);
 }

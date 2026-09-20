@@ -1,12 +1,20 @@
 NAME = ex00
 
 SRCS = main.cpp\
-		ClapTrap.cpp
+		Animal.cpp\
+		Cat.cpp\
+		Dog.cpp\
+		WrongAnimal.cpp\
+		WrongCat.cpp\
 
 OBJ_DIR = objs
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-HEADERS = ClapTrap.hpp
+HEADERS = Animal.hpp\
+		  Cat.hpp\
+		  Dog.hpp\
+		  WrongCat.hpp\
+		  WrongAnimal.hpp\
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
@@ -23,10 +31,8 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 	@echo $(GREEN)[Build]$(RESET) Successfully built $(NAME)
 
-${OBJ_DIR}:
+$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
 	mkdir -p $(OBJ_DIR)
-
-$(OBJ_DIR)/%.o: %.cpp $(HEADERS) | ${OBJ_DIR}
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
