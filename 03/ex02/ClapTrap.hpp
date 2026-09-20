@@ -1,20 +1,25 @@
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
- # include <string>
+# include <string>
 
 class ClapTrap {
     protected:
-        std::string  _name;
-        int         _hitPoint;
-        int         _energyPoint;
-        int         _attackDamage;
-        bool    checkPoint(void);
+        std::string     _name;
+        unsigned int    _hitPoint;
+        unsigned int    _energyPoint;
+        unsigned int    _attackDamage;
+
+        bool    canAct(const std::string &action);
 
     public:
-        ~ClapTrap();
+        ClapTrap();
         ClapTrap(const std::string &name);
-        void    attack(const std::string& target); 
+        ClapTrap(const ClapTrap &other);
+        ClapTrap    &operator=(const ClapTrap &other);
+        ~ClapTrap();
+
+        void    attack(const std::string &target);
         void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
 };
