@@ -24,8 +24,10 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 	@echo $(GREEN)[Build]$(RESET) Successfully built $(NAME)
 
-$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
+${OBJ_DIR}:
 	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: %.cpp $(HEADERS) | ${OBJ_DIR}
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
