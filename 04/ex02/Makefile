@@ -1,6 +1,7 @@
-NAME = ex00
+NAME = ex02
 
 SRCS = main.cpp\
+		Brain.cpp\
 		Animal.cpp\
 		Cat.cpp\
 		Dog.cpp\
@@ -11,6 +12,7 @@ OBJ_DIR = objs
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 HEADERS = Animal.hpp\
+		  Brain.hpp\
 		  Cat.hpp\
 		  Dog.hpp\
 		  WrongCat.hpp\
