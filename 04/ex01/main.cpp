@@ -1,77 +1,75 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
 int main() {
-    std::cout << "===== Basic tests =====" << std::endl;
-
-    const Animal* meta = new Animal();
-    const Animal* dog = new Dog();
-    const Animal* cat = new Cat();
-
-    std::cout << dog->getType() << std::endl;
-    std::cout << cat->getType() << std::endl;
-
-    dog->makeSound();
-    cat->makeSound();
-    meta->makeSound();
-
-    std::cout << "\n--- copy ---" << std::endl;
-    Animal  copyMeta(*meta);
-    Dog     copyDog(static_cast<const Dog&>(*dog));
-    Cat     copyCat(static_cast<const Cat&>(*cat));
-    copyMeta.makeSound();
-    copyDog.makeSound();
-    copyCat.makeSound();
-
-    std::cout << "\n--- assign ---" << std::endl;
-    Animal  otherMeta;
-    Dog     otherDog;
-    Cat     otherCat;
-    otherMeta = *meta;
-    otherDog = static_cast<const Dog&>(*dog);
-    otherCat = static_cast<const Cat&>(*cat);
-    otherMeta.makeSound();
-    otherDog.makeSound();
-    otherCat.makeSound();
-
-    std::cout << "\n--- delete ---" << std::endl;
-    delete meta;
-    delete dog;
-    delete cat;
+    std::cout << "===== Subject test =====" << std::endl;
+    {
+        const Animal* j = new Dog();
+        const Animal* i = new Cat();
+        delete j;
+        delete i;
+    }
 
 
-    std::cout << "\n===== Wrong tests =====" << std::endl;
+    std::cout << "\n===== Animal array =====" << std::endl;
+    {
+        const int   size = 6;
+        Animal*     animals[size];
 
-    const WrongAnimal* wrongAnimal = new WrongAnimal();
-    const WrongAnimal* wrongCat = new WrongCat();
+        for (int i = 0; i < size; i++) {
+            if (i < size / 2)
+                animals[i] = new Dog();
+            else
+                animals[i] = new Cat();
+        }
+        for (int i = 0; i < size; i++)
+            animals[i]->makeSound();
+        for (int i = 0; i < size; i++)
+            delete animals[i];
+    }
 
-    std::cout << wrongAnimal->getType() << std::endl;
-    std::cout << wrongCat->getType() << std::endl;
 
-    wrongAnimal->makeSound();
-    wrongCat->makeSound();
+    std::cout << "\n===== Deep copy (Dog) =====" << std::endl;
+    {
+        Dog original;
+        original.getBrain()->setIdea(0, "bone");
 
-    std::cout << "\n--- copy ---" << std::endl;
-    WrongAnimal copyWrongAnimal(*wrongAnimal);
-    WrongCat    copyWrongCat(static_cast<const WrongCat&>(*wrongCat));
-    copyWrongAnimal.makeSound();
-    copyWrongCat.makeSound();
+        Dog copy(original);
+        Dog assigned;
+        assigned = original;
 
-    std::cout << "\n--- assign ---" << std::endl;
-    WrongAnimal otherWrongAnimal;
-    WrongCat    otherWrongCat;
-    otherWrongAnimal = *wrongAnimal;
-    otherWrongCat = static_cast<const WrongCat&>(*wrongCat);
-    otherWrongAnimal.makeSound();
-    otherWrongCat.makeSound();
+        original.getBrain()->setIdea(0, "ball");
 
-    std::cout << "\n--- delete ---" << std::endl;
-    delete wrongAnimal;
-    delete wrongCat;
+        std::cout << "original: " << original.getBrain()->getIdea(0) << std::endl;
+        std::cout << "copy    : " << copy.getBrain()->getIdea(0) << std::endl;
+        std::cout << "assigned: " << assigned.getBrain()->getIdea(0) << std::endl;
+        std::cout << "brain address differs: "
+                  << (original.getBrain() != copy.getBrain()
+                      && original.getBrain() != assigned.getBrain()) << std::endl;
+    }
+
+
+    std::cout << "\n===== Deep copy (Cat) =====" << std::endl;
+    {
+        Cat original;
+        original.getBrain()->setIdea(0, "fish");
+
+        Cat copy(original);
+        Cat assigned;
+        assigned = original;
+
+        original.getBrain()->setIdea(0, "mouse");
+
+        std::cout << "original: " << original.getBrain()->getIdea(0) << std::endl;
+        std::cout << "copy    : " << copy.getBrain()->getIdea(0) << std::endl;
+        std::cout << "assigned: " << assigned.getBrain()->getIdea(0) << std::endl;
+        std::cout << "brain address differs: "
+                  << (original.getBrain() != copy.getBrain()
+                      && original.getBrain() != assigned.getBrain()) << std::endl;
+    }
 
     return 0;
 }
