@@ -5,10 +5,6 @@
 #include <iostream>
 
 int main() {
-    // Animal is abstract: the following lines must NOT compile.
-    // Animal animal;
-    // Animal* animal = new Animal();
-
     std::cout << "===== Subject test =====" << std::endl;
     {
         const Animal* j = new Dog();
