@@ -5,11 +5,13 @@
 
 class WrongCat : public WrongAnimal {
     public:
+        // constructors
         WrongCat();
         WrongCat(const WrongCat &other);
         WrongCat    &operator=(const WrongCat &other);
         ~WrongCat();
 
+        // member functions
         void makeSound() const;
 };
 

@@ -8,11 +8,13 @@ class WrongAnimal {
         std::string type;
 
     public:
+        // constructors
         WrongAnimal();
         WrongAnimal(const WrongAnimal &other);
         WrongAnimal    &operator=(const WrongAnimal &other);
         virtual ~WrongAnimal();
 
+        // member functions
         std::string getType() const;
         void makeSound() const;
 };
