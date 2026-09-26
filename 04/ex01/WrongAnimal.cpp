@@ -1,6 +1,8 @@
 #include "WrongAnimal.hpp"
 #include <iostream>
 
+// constructors
+
 WrongAnimal::WrongAnimal() : type("") {
     std::cout << "WrongAnimal constructor" << std::endl;
 }
@@ -19,6 +21,8 @@ WrongAnimal    &WrongAnimal::operator=(const WrongAnimal &other) {
 WrongAnimal::~WrongAnimal() {
     std::cout << "WrongAnimal destructor" << std::endl;
 }
+
+// member functions
 
 std::string WrongAnimal::getType() const {
     return this->type;

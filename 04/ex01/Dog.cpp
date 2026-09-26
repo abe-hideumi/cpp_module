@@ -2,6 +2,8 @@
 #include "Dog.hpp"
 #include <iostream>
 
+// constructors
+
 Dog::Dog() : Animal(), brain(new Brain()) {
     this->type = "Dog";
     std::cout << "Dog constructor" << std::endl;
@@ -25,10 +27,16 @@ Dog::~Dog() {
     std::cout << "Dog destructor" << std::endl;
 }
 
+// member functions
+
 void Dog::makeSound() const {
     std::cout << "Waon!" << std::endl;
 }
 
-Brain *Dog::getBrain() const {
+const Brain *Dog::getBrain() const {
     return this->brain;
+}
+
+void Dog::setIdea(unsigned int index, const std::string &idea) {
+    this->brain->setIdea(index, idea);
 }

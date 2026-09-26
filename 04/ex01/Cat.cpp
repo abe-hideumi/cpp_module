@@ -2,6 +2,8 @@
 #include "Cat.hpp"
 #include <iostream>
 
+// constructors
+
 Cat::Cat() : Animal(), brain(new Brain()) {
     this->type = "Cat";
     std::cout << "Cat constructor" << std::endl;
@@ -25,10 +27,16 @@ Cat::~Cat() {
     std::cout << "Cat destructor" << std::endl;
 }
 
+// member functions
+
 void Cat::makeSound() const {
     std::cout << "Meow!" << std::endl;
 }
 
-Brain *Cat::getBrain() const {
+const Brain *Cat::getBrain() const {
     return this->brain;
+}
+
+void Cat::setIdea(unsigned int index, const std::string &idea) {
+    this->brain->setIdea(index, idea);
 }

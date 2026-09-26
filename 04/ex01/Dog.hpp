@@ -9,13 +9,16 @@ class Dog : public Animal {
         Brain   *brain;
 
     public:
+        // constructors
         Dog();
         Dog(const Dog &other);
         Dog    &operator=(const Dog &other);
         ~Dog();
 
+        // member functions
         void makeSound() const;
-        Brain *getBrain() const;
+        const Brain *getBrain() const;
+        void setIdea(unsigned int index, const std::string &idea);
 };
 
 #endif
