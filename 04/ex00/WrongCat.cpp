@@ -1,6 +1,8 @@
 #include "WrongCat.hpp"
 #include <iostream>
 
+// constructors
+
 WrongCat::WrongCat() : WrongAnimal() {
     this->type = "WrongCat";
     std::cout << "WrongCat constructor" << std::endl;
@@ -20,6 +22,8 @@ WrongCat    &WrongCat::operator=(const WrongCat &other) {
 WrongCat::~WrongCat() {
     std::cout << "WrongCat destructor" << std::endl;
 }
+
+// member functions
 
 void WrongCat::makeSound() const {
     std::cout << "WrongCat sound" << std::endl;

@@ -5,11 +5,13 @@
 
 class Dog : public Animal {
     public:
+        // constructors
         Dog();
         Dog(const Dog &other);
         Dog    &operator=(const Dog &other);
         ~Dog();
 
+        // member functions
         void makeSound() const;
 };
 

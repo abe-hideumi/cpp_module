@@ -2,6 +2,8 @@
 #include "Cat.hpp"
 #include <iostream>
 
+// constructors
+
 Cat::Cat() : Animal() {
     this->type = "Cat";
     std::cout << "Cat constructor" << std::endl;
@@ -21,6 +23,8 @@ Cat    &Cat::operator=(const Cat &other) {
 Cat::~Cat() {
     std::cout << "Cat destructor" << std::endl;
 }
+
+// member functions
 
 void Cat::makeSound() const {
     std::cout << "Meow!" << std::endl;

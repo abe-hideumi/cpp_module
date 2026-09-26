@@ -2,6 +2,8 @@
 #include "Dog.hpp"
 #include <iostream>
 
+// constructors
+
 Dog::Dog() : Animal() {
     this->type = "Dog";
     std::cout << "Dog constructor" << std::endl;
@@ -21,6 +23,8 @@ Dog    &Dog::operator=(const Dog &other) {
 Dog::~Dog() {
     std::cout << "Dog destructor" << std::endl;
 }
+
+// member functions
 
 void Dog::makeSound() const {
     std::cout << "Waon!" << std::endl;
